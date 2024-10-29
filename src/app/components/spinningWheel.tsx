@@ -140,7 +140,10 @@ const SpinningWheel: React.FC = () => {
         <div className="flex space-x-4">
           <button
             onClick={addSegment}
-            className="mb-4 px-4 py-5 bg-green-500 text-white rounded-full hover:bg-green-600"
+            className={`mb-4 px-4 py-5 text-white rounded-full  ${
+              isSpinning ? "bg-slate-700" : "bg-green-500 hover:bg-green-600"
+            }`}
+            disabled={isSpinning || segments.length === 0}
           >
             Add Participant
           </button>
