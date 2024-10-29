@@ -114,11 +114,17 @@ const SpinningWheel: React.FC = () => {
       <div className="mb-4 pt-5">
         {segments.map((segment, index) => (
           <div key={index} className="flex items-center mb-2">
+            <button
+              onClick={() => removeSegment(index)}
+              className="mr-2 text-red-500 hover:text-red-700 text-4xl"
+            >
+              &times;
+            </button>
             <input
               type="text"
               value={segment.name}
               onChange={(e) => handleNameChange(index, e.target.value)}
-              className="p-2 border border-gray-300 rounded-md text-black"
+              className="p-2 border border-gray-300 rounded-md text-black text-center"
               placeholder={`Name ${index + 1}`}
             />
             <input
@@ -127,12 +133,6 @@ const SpinningWheel: React.FC = () => {
               onChange={(e) => handleColorChange(index, e.target.value)}
               className="ml-2 w-10 h-10 p-1 rounded-full border border-gray-300"
             />
-            <button
-              onClick={() => removeSegment(index)}
-              className="ml-2 text-red-500 hover:text-red-700"
-            >
-              &times;
-            </button>
           </div>
         ))}
       </div>
